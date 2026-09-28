@@ -1,0 +1,2 @@
+file /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/corpus/word.dev.txt: 5725 sentences, 144776 words, 1992 OOVs
+0 zeroprobs, logprob= -352454.3 ppl= 236.2034 ppl1= 294.0656

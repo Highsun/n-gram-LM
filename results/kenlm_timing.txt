@@ -1,0 +1,45 @@
+KenLM 实测记录（2026-09-27）
+======================================================================
+工具位置 ：~/ngram-toolchain/src/kenlm       （隔离安装，见 TOOLCHAIN.md）
+版本     ：kpu/kenlm master，git 4cb443e；cmake 4.4.3 + Boost 1.85 + Eigen（conda-forge 隔离环境）
+命令     ：run_kenlm.sh（-o 3/5、-S 4G/8G、--prune 0 0 1 1、build_binary trie、query -v summary）
+日志     ：results/logs/kenlm_run.log（脚本输出）、results/logs/kenlm_stderr.log（lmplz 训练进度）
+
+一、词级 3-gram（lmplz 默认：修改版 Kneser-Ney + 插值一元）
+  训练     2.90 s，峰值内存 1.22 GB（-S 4G）
+  ARPA     189.8 MB → build_binary trie 2.47 s 得 52.8 MB
+  困惑度   dev 144,776 词 + 5,725 句末 = 150,501 token，OOV 1,992
+           PPL 含 OOV 254.01 / 不含 OOV 221.18
+
+二、词级 5-gram（--prune 0 0 1 1，即剪掉 4/5-gram 的 singleton）
+  训练     2.87 s，峰值内存 1.98 GB（-S 8G）
+  ARPA     102.8 MB → trie 1.37 s 得 41.4 MB
+  困惑度   PPL 含 OOV 256.69 / 不含 OOV 223.92（同 150,501 token、OOV 1,992）
+
+三、字级 3-gram
+  训练     2.09 s，峰值内存 1.17 GB
+  ARPA     94.1 MB → trie 1.29 s 得 26.2 MB
+  困惑度   dev 237,760 字 + 5,725 句末 = 243,485 token，OOV 7
+           PPL 含 OOV 39.30 / 不含 OOV 39.29
+
+四、补充实测（compare_toolchains.py 的受控对比）
+  5-gram 8-bit 量化（build_binary -q 8 -b 8）：104.3 MB，PPL 237.07（相对未量化 +0.08%）
+  5-gram --interpolate_unigrams 0（SRILM/SRI 式"给 <unk> 大质量"）：
+     PPL 从 236.88 降到 205.56 —— 跨工具比 PPL 前必须先对齐 <unk> 口径
+  查询内存：query 进程 RSS，3-gram 约 58 MB、5-gram 约 200 MB（macOS 上 ru_maxrss 以字节计）；
+     单句打分（13 词 + 句末）约 4 ms（含进程启动）——这是 KenLM 相对自研实现
+     （5-gram 常驻 1.4 GB）的主要优势
+
+五、观察到的训练过程（lmplz -o 3 的 stderr，见 results/logs/kenlm_stderr.log）
+  === 1/5 Counting and sorting n-grams ===
+  Unigram tokens 7142099 types 140463
+  === 2/5 Calculating and sorting adjusted counts ===
+  Chain sizes: 1:1685556 2:1493315456 3:2799966464
+  === 3/5 / 4/5 计算折扣与插值概率 ===
+  === 5/5 Writing ARPA model ===
+
+注意：lmplz 不接受输入文本里出现 <unk>（会抛异常）；旧版文档里的 -v（verbose）开关在当前
+      master 已不存在，进度默认打到 stderr，"--verbose_header" 只给 ARPA 加注释头。
+      KenLM 不支持 Stupid Backoff，该平滑见自研实现 `--smoothing sb`。
+KenLM 训练开始：2026-09-27 22:23:15
+KenLM 训练结束：2026-09-27 22:23:15

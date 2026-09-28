@@ -1,0 +1,41 @@
+SRILM 实测记录（2026-09-27）
+======================================================================
+工具位置 ：~/ngram-toolchain/src/srilm        （隔离安装，见 TOOLCHAIN.md）
+版本     ：RELEASE 1.7.3（源码用 BitSpeech/SRILM 镜像，官网 speech.sri.com 在本机不可达）
+构建     ：只编 misc/dstruct/lm 三个模块（自带的 zlib 模块编不过现代 clang，
+           改用 conda-forge 的 libz.a 补齐链接；详见 TOOLCHAIN.md）
+命令     ：run_srilm.sh；日志：results/logs/srilm_run.log 与 results/logs/srilm_stderr.log
+
+统一口径说明：PPL = 10^(-总 logprob / (验证词数 + 句末数))，含 OOV。
+SRILM 自报的 ppl 在存在 OOV 时会把 OOV 从分母里扣掉，所以两列会不同，表中"自报"列保留原值。
+
+一、词级 3-gram（dev 144,776 词 + 5,725 句末 = 150,501 token，OOV 1,992）
+  修改版 KN (-kndiscount -interpolate)  训练 5.4 s / 峰值 378 MB / ARPA 65.5 MB / PPL 218.40（自报 234.76）
+  原始 KN   (-ukndiscount -interpolate) 训练 5.3 s / 377 MB / 65.5 MB / PPL 219.72（自报 236.20）
+  Witten-Bell (-wbdiscount)             训练 3.9 s / 377 MB / 65.0 MB / PPL 自报 253.20
+
+二、词级 5-gram
+  修改版 KN                              训练 19.5 s / 827 MB / 90.3 MB / PPL 209.74（自报 225.33）
+  原始 KN                                训练 20.3 s / 828 MB / 90.3 MB / PPL 210.41（自报 226.06）
+  熵剪枝 -prune 1e-7                     44.6 MB / PPL 236.57（自报 254.57，体积 -51%）
+  熵剪枝 -prune 1e-6                     10.6 MB / PPL 345.79（自报 374.00，体积 -88%）
+
+三、字级 3-gram（dev 237,760 字 + 5,725 句末 = 243,485 token，OOV 7）
+  修改版 KN                              训练 3.2 s / 峰值 262 MB / ARPA 38.7 MB / PPL 自报 40.98
+
+四、SRILM 自带采样续写（5-gram，-gen-prefixes 只用前缀做条件）
+  前缀：在 阳光 明媚 的 五月 ， 我们 学校 胜利 召开 了
+  输出：由 中国 国际 航空 公司 的 生产 经营 活动 纪实 “ 黄金 搭档 ” 。
+  （-gen-prefixes 的输出只含"续写部分"，不回显前缀，也不会自动补 <s>）
+
+五、使用 SRILM 时踩到的坑（都已在脚本里规避）
+  * -kndiscount 是"修改版" KN；"-ukndiscount" 才是单一折扣的原始 KN，对应自研实现。
+  * -prune 是熵剪枝（删掉某个 n-gram 后训练集困惑度上升不超过阈值才删），不是计数剪枝；
+    -gtNmin 属于 Good-Turing 折扣参数，在 -kndiscount 下给再小的值也不会剪枝（实测 ARPA 字节一致）。
+  * "先把全部 singleton 剪掉、再用 -kndiscount 估模型"会直接报错
+    （one of required modified KneserNey count-of-counts is zero）：SRILM 的折扣估计器要求
+    各阶 count-of-counts 非零。KenLM 是先估折扣再剪，自研实现用剪枝前的统计估折扣，都能绕开。
+  * `ngram -ppl -debug 1` 会逐句打印 5,725 行，脚本里只在 ngram-count 训练时用 -debug 1。
+  * SRILM 不支持 Stupid Backoff（Goodman 2001），该平滑见自研实现 `--smoothing sb`。
+SRILM 训练开始：2026-09-27 22:23:15
+SRILM 训练结束：2026-09-27 22:23:15

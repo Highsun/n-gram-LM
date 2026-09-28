@@ -1,0 +1,10 @@
+[20:26:55] === 训练 2-gram / 平滑 kn / min_count=1 / 语料 /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/corpus/word.train.txt ===
+[20:26:56] 词表：原始类型 140460 -> 建模词表 65533（含 <unk>/<s>/</s>），耗时 0.87s
+[20:26:57] 编码：281448 句 / 7142099 token，耗时 0.9s
+[20:26:59] 滑窗：7423547 个 2-gram 窗口，耗时 1.82s
+[20:27:02]   2-gram：类型 1680173（保留计数>=1），token 覆盖 7423547，耗时 2.92s
+[20:27:02] 平滑：Kneser-Ney 折扣 D = 2:0.702
+[20:27:02] 训练完成，用时 6.58s，峰值内存 627.1 MB
+[20:27:02] 在验证集上计算困惑度 …
+[20:27:05] 验证集：150501 token，OOV 2.14%，困惑度 PPL = 289.91（3.61s）
+[20:27:06] 模型写入 /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/word.kn2.npz（4.5 MB）+ /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/word.kn2.json

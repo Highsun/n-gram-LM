@@ -1,0 +1,33 @@
+== 环境检查 2026-09-28 09:37:37 ==
+OS      : Darwin Highsuns-MacBook-Pro.local 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
+CPU 核数 : 12
+内存     : 18.0 GB
+conda   : ai
+python  : /Users/highsun/miniconda3/envs/ai/bin/python Python 3.12.14
+numpy   : 2.5.3
+nltk    : 未安装
+kenlm(py): 未安装
+SRILM ngram-count : 未安装
+KenLM lmplz       : 未安装
+
+== 隔离工具链（~/ngram-toolchain，可整目录删除，见 TOOLCHAIN.md）==
+存在：/Users/highsun/ngram-toolchain（854M）
+  SRILM : /Users/highsun/ngram-toolchain/src/srilm (RELEASE 1.7.3)
+  KenLM : /Users/highsun/ngram-toolchain/src/kenlm (git 4cb443e)
+  用法  : SRILM=/Users/highsun/ngram-toolchain/src/srilm KENLM=/Users/highsun/ngram-toolchain/src/kenlm bash run_srilm.sh|run_kenlm.sh
+
+== 语料 ==
+char.all.txt                   287173 行     45M
+char.dev.txt                     5725 行    916K
+char.train.txt                 281448 行     44M
+word.all.txt                   287173 行     41M
+word.dev.txt                     5725 行    828K
+word.train.txt                 281448 行     40M
+
+== 原始语料 ==
+199801.txt                      22564 行     10M
+199802.txt                      21357 行     10M
+199803.txt                      24562 行     11M
+199804.txt                      24957 行     12M
+199805.txt                      24739 行     11M
+199806.txt                      24410 行     11M

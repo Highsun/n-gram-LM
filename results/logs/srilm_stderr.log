@@ -1,0 +1,510 @@
+/Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/corpus/word.train.txt: line 281448: 281448 sentences, 7142099 words, 0 OOVs
+0 zeroprobs, logprob= 0 ppl= 1 ppl1= 1
+using ModKneserNey for 1-grams
+modifying 1-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 1-grams
+n1 = 70634
+n2 = 18718
+n3 = 9552
+n4 = 6247
+D1 = 0.653595
+D2 = 0.99939
+D3+ = 1.2902
+using ModKneserNey for 2-grams
+modifying 2-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 2-grams
+n1 = 1325850
+n2 = 221521
+n3 = 88464
+n4 = 47668
+D1 = 0.749537
+D2 = 1.10202
+D3+ = 1.38448
+using ModKneserNey for 3-grams
+Kneser-Ney smoothing 3-grams
+n1 = 3712680
+n2 = 375894
+n3 = 121674
+n4 = 58804
+D1 = 0.831606
+D2 = 1.19245
+D3+ = 1.39237
+discarded 1 2-gram contexts containing pseudo-events
+warning: 1.31209e-06 backoff probability mass left for "。 了" -- disabling interpolation
+discarded 11269 3-gram contexts containing pseudo-events
+discarded 3712680 3-gram probs discounted to zero
+writing 140462 1-grams
+writing 1823800 2-grams
+writing 699610 3-grams
+        5.41 real         5.26 user         0.11 sys
+           377700352  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               23250  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   7  voluntary context switches
+                 396  involuntary context switches
+         51192762250  instructions retired
+         20831523021  cycles elapsed
+           373687064  peak memory footprint
+        0.68 real         0.66 user         0.01 sys
+            99434496  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                6260  page reclaims
+                   8  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  12  involuntary context switches
+          7602250249  instructions retired
+          2627278215  cycles elapsed
+            95240768  peak memory footprint
+/Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/corpus/word.train.txt: line 281448: 281448 sentences, 7142099 words, 0 OOVs
+0 zeroprobs, logprob= 0 ppl= 1 ppl1= 1
+using KneserNey for 1-grams
+modifying 1-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 1-grams
+n1 = 70634
+n2 = 18718
+D = 0.653595
+using KneserNey for 2-grams
+modifying 2-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 2-grams
+n1 = 1325850
+n2 = 221521
+D = 0.749537
+using KneserNey for 3-grams
+Kneser-Ney smoothing 3-grams
+n1 = 3712680
+n2 = 375894
+D = 0.831606
+discarded 1 2-gram contexts containing pseudo-events
+warning: 2.48457e-06 backoff probability mass left for "。 发展" -- disabling interpolation
+warning: 7.03709e-07 backoff probability mass left for "。 了" -- disabling interpolation
+warning: 2.66055e-06 backoff probability mass left for "。 元" -- disabling interpolation
+discarded 11269 3-gram contexts containing pseudo-events
+discarded 3712680 3-gram probs discounted to zero
+writing 140462 1-grams
+writing 1823800 2-grams
+writing 699610 3-grams
+        5.34 real         5.24 user         0.09 sys
+           377667584  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               23247  page reclaims
+                   2  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   5  voluntary context switches
+                 155  involuntary context switches
+         50661570072  instructions retired
+         20622893649  cycles elapsed
+           373670680  peak memory footprint
+        0.71 real         0.68 user         0.02 sys
+            99401728  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                6265  page reclaims
+                   2  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                 319  involuntary context switches
+          7581486093  instructions retired
+          2683342384  cycles elapsed
+            95224408  peak memory footprint
+/Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/corpus/word.train.txt: line 281448: 281448 sentences, 7142099 words, 0 OOVs
+0 zeroprobs, logprob= 0 ppl= 1 ppl1= 1
+using WittenBell for 1-grams
+using WittenBell for 2-grams
+using WittenBell for 3-grams
+warning: distributing 0.0185696 left-over probability mass over all 140461 words
+discarded 1 2-gram contexts containing pseudo-events
+discarded 11269 3-gram contexts containing pseudo-events
+discarded 3712680 3-gram probs discounted to zero
+writing 140462 1-grams
+writing 1823800 2-grams
+writing 699610 3-grams
+        3.91 real         3.81 user         0.10 sys
+           377110528  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               23214  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   7  voluntary context switches
+                 192  involuntary context switches
+         40503858436  instructions retired
+         14801169401  cycles elapsed
+           373130008  peak memory footprint
+        0.68 real         0.66 user         0.02 sys
+            99467264  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                6257  page reclaims
+                  14  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  43  involuntary context switches
+          7598150954  instructions retired
+          2569367475  cycles elapsed
+            95273536  peak memory footprint
+/Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/corpus/word.train.txt: line 281448: 281448 sentences, 7142099 words, 0 OOVs
+0 zeroprobs, logprob= 0 ppl= 1 ppl1= 1
+using ModKneserNey for 1-grams
+modifying 1-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 1-grams
+n1 = 70634
+n2 = 18718
+n3 = 9552
+n4 = 6247
+D1 = 0.653595
+D2 = 0.99939
+D3+ = 1.2902
+using ModKneserNey for 2-grams
+modifying 2-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 2-grams
+n1 = 1325850
+n2 = 221521
+n3 = 88464
+n4 = 47668
+D1 = 0.749537
+D2 = 1.10202
+D3+ = 1.38448
+using ModKneserNey for 3-grams
+modifying 3-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 3-grams
+n1 = 3865561
+n2 = 316643
+n3 = 96547
+n4 = 44136
+D1 = 0.859234
+D2 = 1.21404
+D3+ = 1.42882
+using ModKneserNey for 4-grams
+modifying 4-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 4-grams
+n1 = 5419412
+n2 = 197375
+n3 = 47203
+n4 = 19027
+D1 = 0.932105
+D2 = 1.33125
+D3+ = 1.49712
+using ModKneserNey for 5-grams
+Kneser-Ney smoothing 5-grams
+n1 = 5776705
+n2 = 177880
+n3 = 38171
+n4 = 15192
+D1 = 0.941987
+D2 = 1.39358
+D3+ = 1.50036
+discarded 1 2-gram contexts containing pseudo-events
+warning: 2.59372e-06 backoff probability mass left for "。 了" -- disabling interpolation
+discarded 11269 3-gram contexts containing pseudo-events
+discarded 3865561 3-gram probs discounted to zero
+warning: 5.24418e-07 backoff probability mass left for "。 问题 的" -- disabling interpolation
+discarded 56045 4-gram contexts containing pseudo-events
+discarded 5419412 4-gram probs discounted to zero
+warning: 1.08837e-06 backoff probability mass left for "。 ” 工程 希望" -- disabling interpolation
+warning: 2.68464e-06 backoff probability mass left for "。 ” 政策 的" -- disabling interpolation
+warning: 2.2511e-06 backoff probability mass left for "。 ” 人 的" -- disabling interpolation
+warning: 1.3288e-06 backoff probability mass left for "。 好 更 得" -- disabling interpolation
+warning: 2.49617e-06 backoff probability mass left for "。 工作 的 做" -- disabling interpolation
+warning: 6.59764e-07 backoff probability mass left for "。 意义 的 重要" -- disabling interpolation
+warning: 1.39933e-06 backoff probability mass left for "。 ” 工程 民心" -- disabling interpolation
+warning: 1.48487e-06 backoff probability mass left for "。 努力 的 不懈" -- disabling interpolation
+warning: 2.44883e-06 backoff probability mass left for "。 ” 工程 菜篮子" -- disabling interpolation
+discarded 153463 5-gram contexts containing pseudo-events
+discarded 5776705 5-gram probs discounted to zero
+inserted 89893 redundant 3-gram probs
+inserted 97657 redundant 4-gram probs
+writing 140462 1-grams
+writing 1823800 2-grams
+writing 636622 3-grams
+writing 390926 4-grams
+writing 257672 5-grams
+       19.53 real        19.31 user         0.18 sys
+           826589184  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               50649  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   8  voluntary context switches
+                1427  involuntary context switches
+        183826605467  instructions retired
+         75656023325  cycles elapsed
+           822838424  peak memory footprint
+        0.95 real         0.92 user         0.02 sys
+           135643136  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                8470  page reclaims
+                   8  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  10  involuntary context switches
+         10465465561  instructions retired
+          3680924874  cycles elapsed
+           131465816  peak memory footprint
+/Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/corpus/word.train.txt: line 281448: 281448 sentences, 7142099 words, 0 OOVs
+0 zeroprobs, logprob= 0 ppl= 1 ppl1= 1
+using ModKneserNey for 1-grams
+modifying 1-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 1-grams
+n1 = 70634
+n2 = 18718
+n3 = 9552
+n4 = 6247
+D1 = 0.653595
+D2 = 0.99939
+D3+ = 1.2902
+using ModKneserNey for 2-grams
+modifying 2-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 2-grams
+n1 = 1325850
+n2 = 221521
+n3 = 88464
+n4 = 47668
+D1 = 0.749537
+D2 = 1.10202
+D3+ = 1.38448
+using ModKneserNey for 3-grams
+modifying 3-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 3-grams
+n1 = 3865561
+n2 = 316643
+n3 = 96547
+n4 = 44136
+D1 = 0.859234
+D2 = 1.21404
+D3+ = 1.42882
+using ModKneserNey for 4-grams
+modifying 4-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 4-grams
+n1 = 5419412
+n2 = 197375
+n3 = 47203
+n4 = 19027
+D1 = 0.932105
+D2 = 1.33125
+D3+ = 1.49712
+using ModKneserNey for 5-grams
+Kneser-Ney smoothing 5-grams
+n1 = 5776705
+n2 = 177880
+n3 = 38171
+n4 = 15192
+D1 = 0.941987
+D2 = 1.39358
+D3+ = 1.50036
+discarded 1 2-gram contexts containing pseudo-events
+warning: 2.59372e-06 backoff probability mass left for "。 了" -- disabling interpolation
+discarded 11269 3-gram contexts containing pseudo-events
+discarded 3865561 3-gram probs discounted to zero
+warning: 5.24418e-07 backoff probability mass left for "。 问题 的" -- disabling interpolation
+discarded 56045 4-gram contexts containing pseudo-events
+discarded 5419412 4-gram probs discounted to zero
+warning: 1.08837e-06 backoff probability mass left for "。 ” 工程 希望" -- disabling interpolation
+warning: 2.68464e-06 backoff probability mass left for "。 ” 政策 的" -- disabling interpolation
+warning: 2.2511e-06 backoff probability mass left for "。 ” 人 的" -- disabling interpolation
+warning: 1.3288e-06 backoff probability mass left for "。 好 更 得" -- disabling interpolation
+warning: 2.49617e-06 backoff probability mass left for "。 工作 的 做" -- disabling interpolation
+warning: 6.59764e-07 backoff probability mass left for "。 意义 的 重要" -- disabling interpolation
+warning: 1.39933e-06 backoff probability mass left for "。 ” 工程 民心" -- disabling interpolation
+warning: 1.48487e-06 backoff probability mass left for "。 努力 的 不懈" -- disabling interpolation
+warning: 2.44883e-06 backoff probability mass left for "。 ” 工程 菜篮子" -- disabling interpolation
+discarded 153463 5-gram contexts containing pseudo-events
+discarded 5776705 5-gram probs discounted to zero
+inserted 89893 redundant 3-gram probs
+inserted 97657 redundant 4-gram probs
+pruned 256424 5-grams
+pruned 385683 4-grams
+pruned 591469 3-grams
+pruned 1568550 2-grams
+writing 140462 1-grams
+writing 255250 2-grams
+writing 45153 3-grams
+writing 5243 4-grams
+writing 1248 5-grams
+       18.19 real        18.06 user         0.11 sys
+           828424192  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               50759  page reclaims
+                   2  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                 589  involuntary context switches
+        162827314262  instructions retired
+         69402610599  cycles elapsed
+           824673432  peak memory footprint
+        0.13 real         0.12 user         0.00 sys
+            35553280  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                2368  page reclaims
+                   2  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                   9  involuntary context switches
+          1495521241  instructions retired
+           497226443  cycles elapsed
+            31326736  peak memory footprint
+/Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/corpus/char.train.txt: line 281448: 281448 sentences, 11740799 words, 0 OOVs
+0 zeroprobs, logprob= 0 ppl= 1 ppl1= 1
+using ModKneserNey for 1-grams
+modifying 1-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 1-grams
+n1 = 703
+n2 = 324
+n3 = 262
+n4 = 170
+D1 = 0.520355
+D2 = 0.737657
+D3+ = 1.64946
+using ModKneserNey for 2-grams
+modifying 2-gram counts for Kneser-Ney smoothing
+Kneser-Ney smoothing 2-grams
+n1 = 400264
+n2 = 113053
+n3 = 53496
+n4 = 31285
+D1 = 0.639022
+D2 = 1.09286
+D3+ = 1.50517
+using ModKneserNey for 3-grams
+Kneser-Ney smoothing 3-grams
+n1 = 2264575
+n2 = 452239
+n3 = 189330
+n4 = 105935
+D1 = 0.71459
+D2 = 1.10251
+D3+ = 1.40067
+discarded 1 2-gram contexts containing pseudo-events
+discarded 2132 3-gram contexts containing pseudo-events
+discarded 2264575 3-gram probs discounted to zero
+writing 5678 1-grams
+writing 716705 2-grams
+writing 1101727 3-grams
+        3.16 real         3.09 user         0.06 sys
+           262242304  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               16204  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   5  voluntary context switches
+                 137  involuntary context switches
+         32535156621  instructions retired
+         11958096078  cycles elapsed
+           258163384  peak memory footprint
+        0.46 real         0.44 user         0.01 sys
+            66142208  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                4235  page reclaims
+                   2  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   2  voluntary context switches
+                  45  involuntary context switches
+          5646780748  instructions retired
+          1689571373  cycles elapsed
+            61932072  peak memory footprint
+reading 140462 1-grams
+reading 1823800 2-grams
+reading 636622 3-grams
+reading 390926 4-grams
+reading 257672 5-grams
+        1.07 real         1.04 user         0.02 sys
+           136953856  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                8556  page reclaims
+                   2  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                  31  involuntary context switches
+         11174482321  instructions retired
+          4040952004  cycles elapsed
+           132792944  peak memory footprint

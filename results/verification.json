@@ -1,0 +1,58 @@
+{
+  "date": "2026-09-28",
+  "scope": "Documentation and repository organization; core algorithms and historical experiment measurements unchanged.",
+  "selftest": "passed (Python environment ai; KN max error 1.110e-16; SB score max error 1.388e-17)",
+  "corpus_rebuild": {
+    "word.train.txt": {
+      "sha256": "fe624987fb57eebd3da62b371189f542777631910d102cd2ded9d2f4289ec8c0",
+      "matches_rebuilt": true
+    },
+    "word.dev.txt": {
+      "sha256": "5c271793357902d1dc18b3d6fae3fcd8a6ea527bd26d9b49798ab6b17b33165a",
+      "matches_rebuilt": true
+    },
+    "word.all.txt": {
+      "sha256": "67594e65cb6f29fa058ede84bbd0cc1c69a949fd46fe52e7aede8fd2ed7394e9",
+      "matches_rebuilt": true
+    },
+    "char.train.txt": {
+      "sha256": "98557aaad54065afe7f37353bf4e3b889951ddc1c2a85adb26f70325d796aa84",
+      "matches_rebuilt": true
+    },
+    "char.dev.txt": {
+      "sha256": "65c2f093df9da89464e3b799e554ae9da3f185c8c9ee25d2090a8f7d5a5f00e4",
+      "matches_rebuilt": true
+    },
+    "char.all.txt": {
+      "sha256": "1cc20e3e0d9bfc03b61373de88a08160e7034bae462c173cbbad530dbc005970",
+      "matches_rebuilt": true
+    }
+  },
+  "residual_pos_tokens": {
+    "train": {
+      "次/q": 5
+    },
+    "dev": {},
+    "all": {
+      "次/q": 5
+    }
+  },
+  "record_counts": {
+    "generation_runs.jsonl": 16,
+    "generation_sweep.jsonl": 180,
+    "toolchain_runs.jsonl": 15,
+    "train_runs.jsonl": 19
+  },
+  "figures": 11,
+  "syntax_checks": "all Python AST and bash -n checks passed",
+  "local_markdown_links": "passed",
+  "scaling_vocabulary": "train() counts vocabulary on the complete train file before limiting encoded lines; subset dev OOV = 3226",
+  "full_matrix_rerun": false,
+  "known_limitations": [
+    "Five residual 次/q tokens in train corpus",
+    "SB sampling distribution accumulates lower-order scores unlike SB scoring",
+    "Tag ablation sentence boundaries, normalization and prefix encoding differ",
+    "SRILM comparison adjusts denominator without restoring zero-probability OOV contributions",
+    "bits_per_char uses training chars/token and does not strictly align EOS/OOV"
+  ]
+}

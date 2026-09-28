@@ -1,0 +1,64 @@
+KenLM 训练开始：2026-09-27 21:33:16
+
+[1m== 词级 3-gram（默认平滑，全量语料） ==[0m
++ /Users/highsun/ngram-toolchain/src/kenlm/build/bin/lmplz -o 3 -S 4G --text /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/corpus/word.train.txt --arpa /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.word.o3.arpa --verbose_header
+lmplz	1223671808	1169670144	RSSMax:1223671808 kB	user:2.61148	sys:0.480245	CPU:3.09177	real:2.90037
+        2.92 real         2.61 user         0.49 sys
+          1223671808  maximum resident set size
++ /Users/highsun/ngram-toolchain/src/kenlm/build/bin/build_binary trie /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.word.o3.arpa /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.word.o3.trie
+        2.47 real         2.31 user         0.09 sys
+           133693440  maximum resident set size
++ /Users/highsun/ngram-toolchain/src/kenlm/build/bin/build_binary probing /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.word.o3.arpa /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.word.o3.probing
+        1.38 real         1.34 user         0.03 sys
+           133808128  maximum resident set size
++ /Users/highsun/ngram-toolchain/src/kenlm/build/bin/query -v summary /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.word.o3.trie
+Perplexity including OOVs:	254.00594438059127
+Perplexity excluding OOVs:	221.1837298556595
+OOVs:	1992
+Tokens:	150501
+query	57999360	57147392	RSSMax:57999360 kB	user:0.038068	sys:0.007487	CPU:0.04558	real:0.053435
+        0.06 real         0.03 user         0.00 sys
+            57999360  maximum resident set size
+
+[1m== 词级 5-gram + 剪枝 ==[0m
++ /Users/highsun/ngram-toolchain/src/kenlm/build/bin/lmplz -o 5 -S 8G --text /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/corpus/word.train.txt --arpa /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.word.o5.arpa --prune 0 0 1 1 --verbose_header
+lmplz	1975123968	1974779904	RSSMax:1975123968 kB	user:3.60214	sys:1.21876	CPU:4.82094	real:2.87129
+        2.89 real         3.60 user         1.23 sys
+          1975123968  maximum resident set size
++ /Users/highsun/ngram-toolchain/src/kenlm/build/bin/build_binary trie /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.word.o5.arpa /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.word.o5.trie
+        1.37 real         1.26 user         0.06 sys
+            80314368  maximum resident set size
++ /Users/highsun/ngram-toolchain/src/kenlm/build/bin/query -v summary /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.word.o5.trie
+Perplexity including OOVs:	256.6904275165259
+Perplexity excluding OOVs:	223.92457173450947
+OOVs:	1992
+Tokens:	150501
+query	46071808	45219840	RSSMax:46071808 kB	user:0.038821	sys:0.005442	CPU:0.044291	real:0.040225
+        0.04 real         0.03 user         0.00 sys
+            46071808  maximum resident set size
+
+[1m== 字级 3-gram ==[0m
++ /Users/highsun/ngram-toolchain/src/kenlm/build/bin/lmplz -o 3 -S 4G --text /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/corpus/char.train.txt --arpa /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.char.o3.arpa --verbose_header
+lmplz	1172094976	1171832832	RSSMax:1172094976 kB	user:1.98897	sys:0.207206	CPU:2.19621	real:2.09455
+        2.11 real         1.98 user         0.21 sys
+          1172094976  maximum resident set size
++ /Users/highsun/ngram-toolchain/src/kenlm/build/bin/build_binary trie /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.char.o3.arpa /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.char.o3.trie
+        1.29 real         1.22 user         0.05 sys
+            85639168  maximum resident set size
++ /Users/highsun/ngram-toolchain/src/kenlm/build/bin/query -v summary /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.char.o3.trie
+Perplexity including OOVs:	39.29842443046281
+Perplexity excluding OOVs:	39.28505355490202
+OOVs:	7
+Tokens:	243485
+query	31424512	30474240	RSSMax:31424512 kB	user:0.046673	sys:0.004244	CPU:0.050942	real:0.048255
+        0.05 real         0.04 user         0.00 sys
+            31424512  maximum resident set size
+
+[1m== 单句打分 / 查询延迟 ==[0m
++ /Users/highsun/ngram-toolchain/src/kenlm/build/bin/query -v word /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/models/kenlm.word.o5.trie
+在=113454 2 -1.4735525	阳光=97464 3 -3.313068	明媚=92819 2 -1.9487892	的=77416 3 -0.32711437	五月=60564 2 -5.09295	，=104750 2 -1.574062	我们=122131 2 -2.3539317	学校=125467 2 -3.657179	胜利=70034 1 -4.5223775	召开=15249 2 -1.6748382	了=64034 3 -1.2231495	。=17541 3 -1.4091506	</s>=59411 4 -0.029446688	query	45318144	45318144	RSSMax:45318144 kB	user:0.002792	sys:0.005782	CPU:0.008599	real:0.004482
+        0.00 real         0.00 user         0.00 sys
+            45432832  maximum resident set size
+KenLM 训练结束：2026-09-27 21:33:31
+提示：KenLM 的 lmplz 不直接支持 Stupid Backoff；SB 在自研实现
+      （--smoothing sb）和资料 3 的分布式流程里实现。

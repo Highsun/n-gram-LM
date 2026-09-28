@@ -1,0 +1,152 @@
+
+[1m== 0/7 环境 ==[0m
++ bash check_env.sh
+== 环境检查 2026-09-28 09:37:37 ==
+OS      : Darwin Highsuns-MacBook-Pro.local 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:24 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6030 arm64
+CPU 核数 : 12
+内存     : 18.0 GB
+conda   : ai
+python  : /Users/highsun/miniconda3/envs/ai/bin/python Python 3.12.14
+numpy   : 2.5.3
+nltk    : 未安装
+kenlm(py): 未安装
+SRILM ngram-count : 未安装
+KenLM lmplz       : 未安装
+
+== 隔离工具链（~/ngram-toolchain，可整目录删除，见 TOOLCHAIN.md）==
+存在：/Users/highsun/ngram-toolchain（854M）
+  SRILM : /Users/highsun/ngram-toolchain/src/srilm (RELEASE 1.7.3)
+  KenLM : /Users/highsun/ngram-toolchain/src/kenlm (git 4cb443e)
+  用法  : SRILM=/Users/highsun/ngram-toolchain/src/srilm KENLM=/Users/highsun/ngram-toolchain/src/kenlm bash run_srilm.sh|run_kenlm.sh
+
+== 语料 ==
+char.all.txt                   287173 行     45M
+char.dev.txt                     5725 行    916K
+char.train.txt                 281448 行     44M
+word.all.txt                   287173 行     41M
+word.dev.txt                     5725 行    828K
+word.train.txt                 281448 行     40M
+
+== 原始语料 ==
+199801.txt                      22564 行     10M
+199802.txt                      21357 行     10M
+199803.txt                      24562 行     11M
+199804.txt                      24957 行     12M
+199805.txt                      24739 行     11M
+199806.txt                      24410 行     11M
+
+[1m== 1/7 清洗语料（去编号 / 词性 / 方括号，切句并划分 train/dev） ==[0m
+corpus/word.train.txt 已存在，跳过（--force 可强制重跑）
+
+[1m== 2/7 自研实现：训练矩阵 + 生成样例（run_experiments.py） ==[0m
++ python run_experiments.py --stage all
+[09:37:38] [训练] word.kn1 已存在，跳过（训练 3.55s）
+[09:37:38] [训练] word.kn2 已存在，跳过（训练 6.58s）
+[09:37:38] [训练] word.kn3 已存在，跳过（训练 11.23s）
+[09:37:38] [训练] word.kn4 已存在，跳过（训练 16.4s）
+[09:37:38] [训练] word.kn5 已存在，跳过（训练 22.47s）
+[09:37:38] [训练] word.sb3.a04 已存在，跳过（训练 9.23s）
+[09:37:38] [训练] word.sb3.a10 已存在，跳过（训练 9.3s）
+[09:37:38] [训练] word.sb5.a04 已存在，跳过（训练 15.64s）
+[09:37:38] [训练] word.kn3.prune2 已存在，跳过（训练 9.62s）
+[09:37:38] [训练] word.kn3.prune3 已存在，跳过（训练 9.67s）
+[09:37:38] [训练] word.kn5.prune22 已存在，跳过（训练 18.15s）
+[09:37:38] [训练] word.kn3.prune_all 已存在，跳过（训练 9.47s）
+[09:37:38] [训练] word.kn3.v20k 已存在，跳过（训练 10.59s）
+[09:37:38] [训练] word.kn3.v40k 已存在，跳过（训练 10.72s）
+[09:37:38] [训练] word.kn3.10pct 已存在，跳过（训练 1.71s）
+[09:37:38] [训练] word.kn3.25pct 已存在，跳过（训练 3.31s）
+[09:37:38] [训练] word.kn3.50pct 已存在，跳过（训练 5.82s）
+[09:37:38] [训练] char.kn3 已存在，跳过（训练 14.42s）
+[09:37:38] [训练] char.kn5 已存在，跳过（训练 31.07s）
+[09:37:38] 训练汇总写入 /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/results/training_time.md
+[09:37:38] [生成] 词级2-gram/KN/T=1.0：在阳光明媚的五月，我们学校胜利召开了此次投资企业分流第65次。”。”等各种着全部，已经文明村运输能力。…
+[09:37:40] [生成] 词级3-gram/KN/T=1.0：在阳光明媚的五月，我们学校胜利召开了六个孩子案件387352件，使世界大入秦工程公司，特别注意狠抓商业银行的业务。…
+[09:37:44] [生成] 词级4-gram/KN/T=1.0：在阳光明媚的五月，我们学校胜利召开了字。”丁人林、张票。”周恩来的‘，便忘掉勤奋学习，更好地成长的和平进程，并不等不靠，…
+[09:37:52] [生成] 词级5-gram/KN/T=1.0：在阳光明媚的五月，我们学校胜利召开了多次会议，工资微缩三个由保证和实力都是落实，总花瓣货比三家高科技再次给国际金融界由各…
+[09:37:52] [生成] 词级3-gram/StupidBackoff(α=0.4)/T=1.0：在阳光明媚的五月，我们学校胜利召开了多次用邓小平理论武装骨髓炎的和三我是人民日报理论和实践，继续引诱中小学生。…
+[09:37:52] [生成] 词级3-gram/StupidBackoff(α=1.0)/T=1.0：在阳光明媚的五月，我们学校胜利召开了多次向国际通用讨厌的、都认为，欧盟成立的劳动，希望韩方愿市场为地区经济发展积累了一些…
+[09:37:52] [生成] 词级5-gram/KN/T=1.0/top-k=0：在阳光明媚的五月，我们学校胜利召开了全省村村通电，人们热爱，村委会青少年认识他。”我想，终身大事古代房屋11．6万其向国…
+[09:37:52] [生成] 词级5-gram/KN/T=0.8/top-k=0：在阳光明媚的五月，我们学校胜利召开了20世纪中国的历史、中国绿色通道的基础上，通过主席声明无视人类现实针对性的有关规定，…
+[09:37:52] [生成] 词级5-gram/KN/T=0.7/top-k=5：在阳光明媚的五月，我们学校胜利召开了第一届亚欧会议以来，各成员国为实现党的十五大提出的宏伟目标。…
+[09:37:52] [生成] 词级5-gram/KN/T=1.0/top-k=20：在阳光明媚的五月，我们学校胜利召开了第一届亚欧会议4月，邓小平同志在全国人大常委会委员、常务委员、副处长，再去，在他们的…
+[09:37:52] [生成] 词级5-gram/KN/T=1.3/top-k=0：在阳光明媚的五月，我们学校胜利召开了黄金唯心史观小偷粮食低眉，饱偏颇典型创造文化基础设施建设方面25．9万查账美学25．…
+[09:37:53] [生成] 词级3-gram/KN/剪枝min_count=2/T=0.8/top-k=5：在阳光明媚的五月，我们学校胜利召开了全国政协九届全国政协副主席、中央军委的指挥和发展的需要而准备的特点，在全国人大一次会…
+[09:37:54] [生成] 字级3-gram/KN/T=1.0：在阳光明媚的五月，我们学校胜利召开了第四届中国足协杯赛上的重要主动性丧失机遇，以纪实…
+[09:38:02] [生成] 字级5-gram/KN/T=0.8/top-k=5：在阳光明媚的五月，我们学校胜利召开了十几个人的小学生的来信，他们的事迹和精神，在全国人大常委会副委员长、副委员长田纪云今…
+[09:38:02] [生成] 词级5-gram/KN/贪心解码：在阳光明媚的五月，我们学校胜利召开了“全国优秀共青团员”，“我们的家园———俄罗斯”议员团领导人亚夫林斯基再次表示，他将…
+[09:38:02] [生成] 词级5-gram/KN/beam=5：在阳光明媚的五月，我们学校胜利召开了第十五次全国代表大会胜利召开，作出了高举邓小平理论伟大旗帜，在以江泽民同志为核心的党…
+[09:38:02] 生成结果写入 /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/results/generation_samples.md
+
+[1m== 3/7 KenLM：跳过（未安装或 --skip-tools） ==[0m
+  安装方式见 TOOLCHAIN.md；dry-run： KENLM=/Users/highsun/ngram-toolchain/src/kenlm bash run_kenlm.sh --dry-run
+
+[1m== 4/7 SRILM / 5/7 三方对比：跳过（未安装或 --skip-tools） ==[0m
+
+[1m== 6/7 完整验证集上的困惑度总表 + 生成参数扫描 ==[0m
++ python ppl_table.py
+[09:38:12] char.kn3                           char 3-gram  PPL=    39.76  bits/字=5.313  OOV=    7 (0.00%)  7.12s
+[09:38:33] char.kn5                           char 5-gram  PPL=    31.84  bits/字=4.993  OOV=    7 (0.00%)  13.64s
+[09:38:34] word.kn1                           word 1-gram  PPL=  1609.88  bits/字=6.480  OOV= 3226 (2.14%)  0.11s
+[09:38:38] word.kn2                           word 2-gram  PPL=   289.91  bits/字=4.976  OOV= 3226 (2.14%)  4.78s
+[09:38:43] word.kn3.10pct                     word 3-gram  PPL=   627.56  bits/字=5.653  OOV= 3226 (2.14%)  3.91s
+[09:38:49] word.kn3.25pct                     word 3-gram  PPL=   368.87  bits/字=5.187  OOV= 3226 (2.14%)  5.61s
+[09:38:56] word.kn3.50pct                     word 3-gram  PPL=   269.75  bits/字=4.912  OOV= 3226 (2.14%)  5.81s
+[09:39:04] word.kn3                           word 3-gram  PPL=   198.88  bits/字=4.645  OOV= 3226 (2.14%)  6.89s
+[09:39:10] word.kn3.prune2                    word 3-gram  PPL=   365.34  bits/字=5.179  OOV= 3226 (2.14%)  4.89s
+[09:39:14] word.kn3.prune3                    word 3-gram  PPL=   523.39  bits/字=5.494  OOV= 3226 (2.14%)  3.73s
+[09:39:18] word.kn3.prune_all                 word 3-gram  PPL=   402.75  bits/字=5.264  OOV= 3226 (2.14%)  4.24s
+[09:39:26] word.kn3.v20k                      word 3-gram  PPL=   145.35  bits/字=4.370  OOV= 7990 (5.31%)  6.65s
+[09:39:34] word.kn3.v40k                      word 3-gram  PPL=   178.48  bits/字=4.550  OOV= 4705 (3.13%)  5.86s
+[09:39:47] word.kn4                           word 4-gram  PPL=   187.31  bits/字=4.592  OOV= 3226 (2.14%)  8.32s
+[09:40:05] word.kn5                           word 5-gram  PPL=   184.74  bits/字=4.580  OOV= 3226 (2.14%)  10.57s
+[09:40:16] word.kn5.prune22                   word 5-gram  PPL=   236.51  bits/字=4.797  OOV= 3226 (2.14%)  8.47s
+[09:40:18] word.sb3.a04                       word 3-gram  PPL=   237.54  bits/字=4.801  OOV= 3226 (2.14%)  1.78s
+[09:40:20] word.sb3.a10                       word 3-gram  PPL=   125.52  bits/字=4.241  OOV= 3226 (2.14%)  1.82s
+[09:40:24] word.sb5.a04                       word 5-gram  PPL=   914.45  bits/字=5.984  OOV= 3226 (2.14%)  3.47s
+[09:40:24] 写入 /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/results/ppl_full.json 与 /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/results/ppl_full.md（共 19 个模型）
++ python gen_sweep.py --model models/word.kn5.npz --seeds 10
+[09:40:31] 模型 word.kn5.npz（5-gram/kn），前缀分词：在 阳光 明媚 的 五月 ， 我们 学校 胜利 召开 了
+[09:40:32]   T=0.5  top-k=0   平均长度  30.3  logprob/token  -1.6561  TTR 0.902
+[09:40:32]   T=0.5  top-k=5   平均长度  30.1  logprob/token  -1.4691  TTR 0.906
+[09:40:32]   T=0.5  top-k=20  平均长度  31.3  logprob/token  -1.5583  TTR 0.910
+[09:40:32]   T=0.7  top-k=0   平均长度  30.4  logprob/token  -2.8368  TTR 0.938
+[09:40:33]   T=0.7  top-k=5   平均长度  28.7  logprob/token  -1.6731  TTR 0.933
+[09:40:33]   T=0.7  top-k=20  平均长度  28.7  logprob/token  -1.9386  TTR 0.936
+[09:40:33]   T=0.85 top-k=0   平均长度  28.6  logprob/token  -3.4979  TTR 0.970
+[09:40:34]   T=0.85 top-k=5   平均长度  34.4  logprob/token  -1.7741  TTR 0.910
+[09:40:34]   T=0.85 top-k=20  平均长度  26.7  logprob/token  -2.2389  TTR 0.941
+[09:40:34]   T=1.0  top-k=0   平均长度  34.7  logprob/token  -5.1053  TTR 0.968
+[09:40:35]   T=1.0  top-k=5   平均长度  34.3  logprob/token  -1.8739  TTR 0.901
+[09:40:35]   T=1.0  top-k=20  平均长度  30.5  logprob/token  -2.4153  TTR 0.921
+[09:40:35]   T=1.2  top-k=0   平均长度    34  logprob/token  -7.7725  TTR 0.981
+[09:40:36]   T=1.2  top-k=5   平均长度  32.8  logprob/token  -1.9034  TTR 0.882
+[09:40:36]   T=1.2  top-k=20  平均长度  28.5  logprob/token  -3.0094  TTR 0.942
+[09:40:37]   T=1.5  top-k=0   平均长度  42.2  logprob/token -10.6323  TTR 0.995
+[09:40:37]   T=1.5  top-k=5   平均长度  34.6  logprob/token  -2.1542  TTR 0.888
+[09:40:37]   T=1.5  top-k=20  平均长度  35.9  logprob/token  -3.2298  TTR 0.905
+[09:40:37] 写入 /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/results/generation_sweep.jsonl 与 /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/results/generation_sweep_summary.md（180 条，6.1s）
+
+[1m== 7/7 绘图（results/figures/*.png） ==[0m
++ python plot_results.py
+使用字体：PingFang SC
+[图 1]
+  写出 results/figures/fig1_order_vs_ppl_and_sparsity.png
+[图 2]
+  写出 results/figures/fig2_training_time_breakdown.png
+[图 3]
+  写出 results/figures/fig3_memory_and_model_size.png
+[图 4]
+  写出 results/figures/fig4_corpus_scaling.png
+[图 5]
+  写出 results/figures/fig5_size_ppl_tradeoff.png
+[图 6]
+  写出 results/figures/fig6_three_tool_comparison.png
+[图 7]
+  写出 results/figures/fig7_bits_per_unit.png
+[图 8]
+  写出 results/figures/fig8_generation_sweep.png
+[图 9]
+  写出 results/figures/fig9_unk_effect_on_ppl.png
+
+全部完成。产物在 results/ 与 results/figures/。

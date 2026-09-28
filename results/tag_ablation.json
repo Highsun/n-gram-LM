@@ -1,0 +1,44 @@
+{
+  "corpus": {
+    "raw_tokens": 7286876,
+    "raw_types": 295610,
+    "tagged_types": 164533,
+    "word_types": 141990,
+    "id_tokens": 123882,
+    "tagged_tokens": 7286875,
+    "sentences": {
+      "train": 120714,
+      "dev": 2443
+    },
+    "build_seconds": 6.7
+  },
+  "tag_entropy": {
+    "tokens": 144776,
+    "accuracy": 0.9151,
+    "entropy_bits": 0.4306,
+    "distinct_tags": 42
+  },
+  "fragmentation": {
+    "word_trigram_types": 4515472,
+    "tagged_trigram_types": 4596790,
+    "fragmentation": 1.018
+  },
+  "tagged_model": {
+    "order": 3,
+    "vocab_size": 65533,
+    "ngram_types": {
+      "2": 1737328,
+      "3": 4481466
+    },
+    "train_seconds": 10.19,
+    "model_mb": 18.2,
+    "dev_ppl": 234.09,
+    "dev_oov_rate": 0.0271
+  },
+  "generation": {
+    "tagged": "在阳光明媚的五月，我们学校胜利召开了的/u《/w关于/p对/p在/p印尼/ns的/u外汇/n储备/vn，/w使/v我/r对/p这/r一/m天/q晚上/t，/w我/r想/v，/w这/r是/v一/m次/q",
+    "clean": "在阳光明媚的五月，我们学校胜利召开了全国政协委员的意见和要求。”这是一种“两个根本性转变，实现了。",
+    "tagged_leak_tokens": 25,
+    "generated_tokens": 25
+  }
+}

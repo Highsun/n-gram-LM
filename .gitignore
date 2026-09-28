@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.pytest_cache/
+
+# 编辑器
+.vscode/
+
+# 生成物 / 中间产物
+corpus/
+models/
+results/logs/last_time.txt
+
+# 原始标注语料（自行准备，不纳入版本控制）
+data/
+
+# SRILM / KenLM 训练产物
+models/*.arpa
+models/*.trie
+models/*.probing
+
+# 本地配置与凭据
+.env
+.env.*
+!.env.example
+
+# 实验报告仅保存在仓库外的项目根目录
+/实验报告.md
+/REPORT.md

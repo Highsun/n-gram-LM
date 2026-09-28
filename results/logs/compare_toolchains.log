@@ -1,0 +1,19 @@
+[22:12:42] 语料：word.train.txt / word.dev.txt
+[22:12:42]   训练 281448 句 / 7142099 token / 140460 词型；验证 144776 token
+[22:12:42]   自研实现的建模词表（截断后）：65533
+[22:12:42] === 3-gram：自研 numpy ===
+[22:13:01] === 3-gram：KenLM（默认插值一元）===
+[22:13:06] === 3-gram：KenLM（SRI 式一元，<unk> 质量更大）===
+[22:13:12] === 3-gram：SRILM（修改版 KN）===
+[22:13:17] === 3-gram：SRILM（原始 KN，单折扣）===
+[22:13:23] === 5-gram：自研 numpy ===
+[22:14:02] === 5-gram：KenLM（默认插值一元）===
+[22:14:18] === 5-gram：KenLM（SRI 式一元，<unk> 质量更大）===
+[22:14:33] === 5-gram：SRILM（修改版 KN）===
+[22:14:53] === 5-gram：SRILM（原始 KN，单折扣）===
+[22:15:14] === 5-gram：剪枝/量化变体 ===
+[22:15:14]   [自研] prune=[1, 1, 2, 2] …
+[22:15:42]   [KenLM] --prune 0 0 1 1 …
+[22:15:46]   [KenLM] 8-bit 量化（不剪枝）…
+[22:16:02]   [SRILM] 熵剪枝 -prune 1e-7 / 1e-6 …
+[22:16:42] 对比表写入 /Users/highsun/Desktop/PKU/课程/大语言模型的实践与应用/作业/n-gram语言模型/code/results/toolchain_comparison.md
